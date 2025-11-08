@@ -1,9 +1,9 @@
 'use client';
 
-import { Task } from '@/src/types';
-import { useTaskStore } from '@/src/store/taskStore';
-import { Card, CardContent, CardHeader } from '@/src/components/ui/card';
-import { Button } from '@/src/components/ui/button';
+import { Task } from '@/types';
+import { useTaskStore } from '@/store/taskStore';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { Trash2, Edit, CheckCircle2, Circle } from 'lucide-react';
 import { format } from 'date-fns';
 

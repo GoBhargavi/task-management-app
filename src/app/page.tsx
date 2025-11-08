@@ -1,10 +1,11 @@
 'use client';
 
-import { useTaskStats } from '@/src/lib/hooks/useTaskStats';
-import { Card, CardContent, CardHeader, CardTitle } from '@/src/components/ui/card';
+import { useTaskStats } from '@/lib/hooks/useTaskStats';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle2, Clock, ListTodo, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from '@/src/components/ui/button';
+import { Button } from '@/components/ui/button';
+import AITaskSuggester from '@/components/AITaskSuggester'; 
 
 export default function DashboardPage() {
   const stats = useTaskStats();
@@ -109,6 +110,28 @@ export default function DashboardPage() {
           </div>
         </CardContent>
       </Card>
+       {/* AI Task Suggester - NEW! */}
+      <div className="mb-8">
+        <AITaskSuggester />
+      </div>
+
+      {/* Quick Actions */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Quick Actions</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex gap-4">
+            <Button asChild>
+              <Link href="/tasks">View All Tasks</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/tasks">Create New Task</Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
+    
   );
 }

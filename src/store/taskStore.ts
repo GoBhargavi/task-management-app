@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Task, TaskFormData, TaskFilters } from '@/src/types';
+import { Task, TaskFormData, TaskFilters } from '@/types';
 
 interface TaskStore {
   tasks: Task[];

@@ -3,18 +3,18 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Button } from '@/src/components/ui/button';
-import { Input } from '@/src/components/ui/input';
-import { Label } from '@/src/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/src/components/ui/select';
-import { TaskFormData } from '@/src/types';
-import { TASK_STATUSES, TASK_PRIORITIES, TASK_CATEGORIES } from '@/src/lib/constants';
+} from '@/components/ui/select';
+import { TaskFormData } from '@/types';
+import { TASK_STATUSES, TASK_PRIORITIES, TASK_CATEGORIES } from '@/lib/constants';
 
 const taskSchema = z.object({
   title: z.string().min(1, 'Title is required').max(100, 'Title is too long'),

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useTaskStore } from '@/src/store/taskStore';
+import { useTaskStore } from '@/store/taskStore';
 
 export const useTaskStats = () => {
   const tasks = useTaskStore((state) => state.tasks);
