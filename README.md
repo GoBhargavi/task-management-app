@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Task Manager
 
-## Getting Started
+A premium, intelligent task management application built with Next.js, Express, and local AI integration.
 
-First, run the development server:
+![Task Manager Dashboard](https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=2072&ixlib=rb-4.0.3)
+
+## ✨ Features
+
+- **🤖 AI-Powered**: 
+  - **Task Suggestions**: Get intelligent task ideas based on your goals.
+  - **Auto-Categorization**: Automatically categorizes tasks (Work, Health, Personal, etc.).
+  - **Task Breakdown**: Breaks down complex goals into actionable steps.
+- **🎨 Premium UI**: 
+  - Modern Glassmorphism design.
+  - Smooth animations and transitions.
+  - Dark/Light mode support.
+- **📊 Analytics Dashboard**: Visualize your productivity with charts and stats.
+- **⚡️ Real-time Updates**: Instant state management with Zustand.
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js 14, Tailwind CSS, Lucide Icons, Shadcn UI
+- **Backend**: Express.js
+- **AI Engine**: Ollama (Llama 3, Mistral) or OpenAI (Optional)
+- **Database**: PostgreSQL + Prisma (or Local State for demo)
+- **Vector DB**: ChromaDB (for semantic search)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- [Ollama](https://ollama.com/) (for local AI features)
+
+### 1. Install Dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Frontend
+npm install
+
+# Backend
+cd backend
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file in `backend/`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+PORT=3001
+# OpenAI Key (Optional if using Ollama)
+OPENAI_API_KEY=your_key_here
+# Database (Optional for demo)
+DATABASE_URL="postgresql://user:password@localhost:5432/taskdb"
+```
 
-## Learn More
+### 3. Start the Application
 
-To learn more about Next.js, take a look at the following resources:
+**Run Backend:**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+cd backend
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Run Frontend:**
 
-## Deploy on Vercel
+```bash
+# In root directory
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3000](http://localhost:3000) to view the app!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧠 AI Setup (Ollama)
+
+1. Download [Ollama](https://ollama.com/).
+2. Pull the model used in the backend (e.g., `llama3.2` or `mistral`):
+   ```bash
+   ollama pull llama3.2:1b
+   ```
+3. Ensure Ollama is running (`ollama serve`).
+
+## 📄 License
+
+MIT

@@ -1,4 +1,4 @@
-import { TaskStatus, TaskPriority, TaskCategory } from '@/src/types';
+import { TaskStatus, TaskPriority, TaskCategory } from '@/types';
 
 export const TASK_STATUSES: { value: TaskStatus; label: string }[] = [
   { value: 'todo', label: 'To Do' },
