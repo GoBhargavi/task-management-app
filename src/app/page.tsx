@@ -54,7 +54,7 @@ export default function DashboardPage() {
             Hello, <span className="text-gradient">There!</span> 👋
           </h1>
           <p className="text-muted-foreground text-lg">
-            Here's your productivity overview for today.
+            Here&apos;s your productivity overview for today.
           </p>
         </div>
 

@@ -75,7 +75,7 @@ export default function AITaskSuggester() {
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse"></div>
             <Loader2 className="w-12 h-12 text-primary animate-spin relative z-10" />
           </div>
-          <p className="text-muted-foreground font-medium animate-pulse">Thinking about "{context}"...</p>
+          <p className="text-muted-foreground font-medium animate-pulse">Thinking about &quot;{context}&quot;...</p>
         </div>
       )}
 
