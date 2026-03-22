@@ -1,139 +1,159 @@
-# AI Task Manager
+# 🚀 AI Task Manager
 
-A premium, intelligent task management application built with Next.js 15, Express 5, and local AI integration.
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-5-black?logo=express)](https://expressjs.com/)
+[![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma)](https://prisma.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org/)
+
+> A premium, intelligent task management application featuring a local AI integration for smart suggestions, semantic task breakdown, and auto-categorization.
 
 ![Task Manager Dashboard](https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=2072&ixlib=rb-4.0.3)
 
-## ✨ Features
+---
 
-- **🤖 AI-Powered**: 
-  - **Task Suggestions**: Get intelligent task ideas based on your goals.
-  - **Auto-Categorization**: Automatically categorizes tasks (Work, Health, Personal, etc.).
-  - **Task Breakdown**: Breaks down complex goals into actionable steps.
-- **🎨 Premium UI**: 
-  - Modern Glassmorphism design.
-  - Smooth animations and transitions.
-  - Dark/Light mode support.
-- **📊 Analytics Dashboard**: Visualize your productivity with charts and stats.
-- **⚡️ Real-time Updates**: Instant state management with Zustand.
+## ✨ Key Features
+
+*   **🤖 AI-Powered Intelligence**: 
+    *   **Smart Suggestions**: Get intelligent task ideas based on your overarching goals.
+    *   **Auto-Categorization**: Automatically classifies tasks into domains like Work, Health, and Personal.
+    *   **Task Breakdown**: Recursively breaks down complex goals into actionable substeps.
+*   **🎨 Premium User Experience**: 
+    *   Sleek Modern Glassmorphism design elements.
+    *   Smooth layout animations and seamless page transitions.
+    *   Native Dark/Light mode support.
+*   **📊 Insights & Analytics**: Visualize your productivity over time with interactive charts.
+*   **⚡️ Highly Responsive**: Instant state updates and real-time reflections using Zustand.
+
+---
 
 ## 🛠 Tech Stack
 
-- **Frontend**: Next.js 15, Tailwind CSS 4, Lucide Icons, Shadcn UI
-- **Backend**: Express.js 5
-- **AI Engine**: Ollama (Llama 3, Mistral) or OpenAI (Optional)
-- **Database**: PostgreSQL + Prisma 6
-- **Vector DB**: ChromaDB (for semantic search)
+| Domain | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | [Next.js 15](https://nextjs.org) | App Router, SSR/SSG capabilities |
+| **UI/Styling** | [Tailwind CSS 4](https://tailwindcss.com) & [Shadcn UI](https://ui.shadcn.com/) | Atomic styling and unstyled radix components |
+| **Backend** | [Express.js 5](https://expressjs.com) | Highly robust Node.js REST API layer |
+| **Database** | [PostgreSQL](https://postgresql.org) + [Prisma 6](https://prisma.io) | Relational database handling with type-safe ORM |
+| **AI Engine** | [Ollama](https://ollama.com/) | Local LLM inference (Llama 3, Mistral) |
+| **Vector Search**| [ChromaDB](https://www.trychroma.com/) | Local vector database for semantic task search |
+
+---
 
 ## 🚀 Getting Started
 
+Follow these instructions to set up the project locally.
+
 ### Prerequisites
 
-- Node.js 18+
-- [Ollama](https://ollama.com/) (for local AI features)
-- PostgreSQL (e.g. via Docker)
+*   **Node.js** 18 or higher
+*   **Docker** / **PostgreSQL** running locally
+*   **Ollama** (Required for local AI processing)
 
-### 1. Install Dependencies
+### 1. Clone & Install Dependencies
 
 ```bash
-# Frontend
+# Clone the repository
+git clone <your-repo-url>
+cd task-management-app
+
+# Install frontend dependencies
 npm install
 
-# Backend
+# Install backend dependencies
 cd backend
 npm install
 ```
 
-### 2. Configure Environment
+### 2. Environment Configuration
 
-**Backend:**
-Copy `backend/.env.example` to `backend/.env` and update the values:
+You will need to configure environment variables for both the root (frontend) and backend.
 
+**Backend `.env`:**
 ```bash
 cp backend/.env.example backend/.env
 ```
+Update your `DATABASE_URL` (pointing to your local Postgres) and generate a `JWT_SECRET`.
 
-Update `DATABASE_URL` and `JWT_SECRET` in `backend/.env`.
-
-**Frontend:**
-Copy `.env.example` to `.env.local`:
-
+**Frontend `.env.local`:**
 ```bash
 cp .env.example .env.local
 ```
 
-### 3. Initialize Database
+### 3. Database Initialization
+
+Navigate into the backend directory and synchronize the Prisma schema:
 
 ```bash
 cd backend
 npx prisma generate
-npx prisma push # Or npx prisma migrate dev
+npx prisma db push  # or 'npx prisma migrate dev' if deploying migrations
 ```
 
-### 4. Start the Application
+### 4. Running the Application
 
-**Run Backend:**
+In separate terminal windows, spin up both servers:
 
+**Backend Engine**
 ```bash
 cd backend
 npm run dev
 ```
 
-**Run Frontend:**
-
+**Next.js Frontend**
 ```bash
-# In root directory
+# Back in the project root
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the app!
+Your frontend is now available at [http://localhost:3000](http://localhost:3000).
 
-## 💻 Development
-
-### Linting & Formatting
-
-```bash
-# Run Linting
-npm run lint
-
-# Run Type Checking
-npm run type-check
-```
-
-### Testing
-
-```bash
-# Run Unit Tests
-npm test
-```
-
-## 📂 Project Structure
-
-```
-├── backend/                # Express.js Backend
-│   ├── src/
-│   │   ├── controllers/    # Route controllers
-│   │   ├── routes/         # API routes
-│   │   ├── middleware/     # Auth & Error middleware
-│   │   └── services/       # Business logic (AI, etc.)
-│   └── prisma/             # Database schema
-├── src/                    # Next.js Frontend
-│   ├── app/                # App Router pages
-│   ├── components/         # UI Components
-│   ├── lib/                # Utilities & Hooks
-│   └── store/              # Zustand state store
-└── tests/                  # Test files
-```
+---
 
 ## 🧠 AI Setup (Ollama)
 
+For the intelligence engine to operate, ensure Ollama is installed and running with the appropriate models:
+
 1. Download [Ollama](https://ollama.com/).
-2. Pull the model used in the backend (e.g., `llama3.2` or `mistral`):
+2. Pull the required models:
    ```bash
    ollama pull llama3.2:1b
+   ollama pull mistral # if needed
    ```
-3. Ensure Ollama is running (`ollama serve`).
+3. Ensure the daemon is running locally (`ollama serve`).
 
-## 📄 License
+---
 
-MIT
+## 📂 Architecture
+
+```
+task-management-app/
+├── backend/                  # Dedicated Express.js API Server
+│   ├── src/
+│   │   ├── controllers/      # Route logic handlers
+│   │   ├── middleware/       # Authentication, validation, and error traps
+│   │   ├── routes/           # Express router definitions
+│   │   └── services/         # Core business & AI integration logic
+│   └── prisma/               # Schema definitions and migrations
+├── src/                      # Next.js Application
+│   ├── app/                  # File-system based router (App directory)
+│   ├── components/           # React elements (UI, layouts, forms)
+│   ├── lib/                  # Utilities, fetchers, and formatting hooks
+│   └── store/                # Zustand global state configurations
+└── tests/                    # End-to-end and unit testing suites
+```
+
+---
+
+## 📝 Scripts & Development
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` / `npm run type-check` - Code quality checks
+- `npm test` - Run Jest test suites
+- `npm run test:e2e` - Run Playwright E2E tests
+
+## 🛡 License
+
+This project is licensed under the MIT License.
