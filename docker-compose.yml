@@ -1,17 +1,30 @@
-version: '3.8'
-
 services:
   db:
     image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: taskdb
+      POSTGRES_USER: taskflow
+      POSTGRES_PASSWORD: taskflow123
+      POSTGRES_DB: taskflow_dev
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://taskflow:taskflow123@db:5432/taskflow_dev
+      - JWT_SECRET=taskflow-super-secret-key-change-this-in-production-123
+      - PORT=3001
+    depends_on:
+      - db
+    restart: unless-stopped
 
   app:
     build:
@@ -22,9 +35,9 @@ services:
     environment:
       - NODE_ENV=production
       - NEXT_PUBLIC_APP_URL=http://localhost:3000
-      - NEXT_PUBLIC_API_URL=http://localhost:3000/api
+      - NEXT_PUBLIC_API_URL=http://localhost:3001/api
     depends_on:
-      - db
+      - api
     restart: unless-stopped
 
 volumes:

@@ -47,21 +47,35 @@ Follow these instructions to set up the project locally.
 
 ### Prerequisites
 
-*   **Node.js** 18 or higher
-*   **Docker** / **PostgreSQL** running locally
+*   **Docker Desktop**
 *   **Ollama** (Required for local AI processing)
 
-### 1. Clone & Install Dependencies
+### One-Click Deploy (Recommended)
+
+You can spin up the entire application (Database, Backend API, and Frontend) with a single command:
 
 ```bash
 # Clone the repository
 git clone <your-repo-url>
 cd task-management-app
 
-# Install frontend dependencies
+# Build and start all services using Docker Compose
+docker compose up --build -d
+```
+
+Your system is now online!
+*   **Web Dashboard**: [http://localhost:3000](http://localhost:3000)
+*   **API Server**: [http://localhost:3001](http://localhost:3001)
+
+### Manual Setup (For Development)
+
+**1. Clone & Install Dependencies:**
+
+```bash
+# Frontend
 npm install
 
-# Install backend dependencies
+# Backend
 cd backend
 npm install
 ```
